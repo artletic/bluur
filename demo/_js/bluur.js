@@ -1,8 +1,11 @@
 var bluur = (function(window, document, undefined) {
 	var processor_url = '';
 	return {
-		image: function(to_blur, callback){
-			$.get( processor_url, { img: to_blur }).done(function( data){
+		image: function(to_blur, depth, callback){
+			$.get( processor_url, { 
+				img: to_blur,
+				depth: depth
+			}).done(function(data){
 				callback(data);
 			});
 		},

@@ -16,6 +16,8 @@
 	bluur.config('image_processor.php');
 	// This is just a standard jQuery .each, searching for .blur
 	$('.blur').each(function(){
+		// Blur depth is set here. It can be anywhere between 1 and 60.
+		var depth = 50;
 		// This gets the image we want to blur. In this case a src attribute, but it could be a data attribute or background image.
 		var to_blur = $(this).attr('src');
 		// We've set a data attribute to tell the script where to place the image, just as an example.
@@ -23,7 +25,7 @@
 		// We'll also get the alt attribute and store that, just incase.
 		var alt = $(this).attr('alt');
 		// All we're doing here is sending the location of the image and a callback function to bluur.image();
-		bluur.image(to_blur, function(response){
+		bluur.image(to_blur, depth, function(response){
 			// This prepends the image is appended to a div (placement)
 			var markup = '&lt;img src="' + response + '" alt="' + alt + '" /&gt;';
 			$(placement).prepend(markup);
@@ -51,26 +53,22 @@
 	$(document).ready(function(){
 		// First, tell bluur where to find the image processor
 		bluur.config('image_processor.php');
-		// Then, we roll through the collection (or single item) that you want to blur.
-		// This is just standard jQuery stuff, we're looking for anything called .blur
+		// This is just a standard jQuery .each, searching for .blur
 		$('.blur').each(function(){
-			// Once we've found the things we want to blur, we're getting the image out of it.
-			// In this case, it's the src attribute the image we found
-			// As long as this returns an image file, it could be a data attribute, or a CSS Background image.
+			// Blur depth is set here. It can be anywhere between 1 and 60.
+			var depth = 50;
+			// This gets the image we want to blur. In this case a src attribute, but it could be a data attribute or background image.
 			var to_blur = $(this).attr('src');
-			// We've also set a data attribute to tell us where the image needs to be placed. This grabs that info and stashes it for later.
+			// We've set a data attribute to tell the script where to place the image, just as an example.
 			var placement = $(this).data('target');
 			// We'll also get the alt attribute and store that, just incase.
 			var alt = $(this).attr('alt');
-			// This is where bluur actually doe something. 
-			// Here, we're sending to_blur (the image location) to the bluur script.
-			// The function happens when bluur actually finishes blurring the image and calls back.
-			bluur.image(to_blur, function(response){
-				// This is where we do something with the response.
-				// First, we're going to show an example where the image is appended to a div
+			// All we're doing here is sending the location of the image and a callback function to bluur.image();
+			bluur.image(to_blur, depth, function(response){
+				// This prepends the image is appended to a div (placement)
 				var markup = '<img src="' + response + '" alt="' + alt + '" />';
 				$(placement).prepend(markup);
-				// Second, we're going to show a case where it's applied to a background.
+				// This applies the image to a background.
 				// Note: There are some styles being applied in the CSS to make it stretch.
 				$('body').css('background-image', 'url(' + response + ')');
 			});
