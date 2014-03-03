@@ -1,0 +1,180 @@
+/**
+ * prism.js Dark theme for JavaScript, CSS and HTML
+ * Based on the slides of the talk “/Reg(exp){2}lained/”
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: white;
+	text-shadow: 0 -.1em .2em black;
+	font-family: Consolas, Monaco, 'Andale Mono', monospace;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+pre[class*="language-"],
+:not(pre) > code[class*="language-"] {
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: .5em;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .15em .2em .05em;
+	border-radius: .3em;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #bbb;
+	color: rgba(255,255,255,0.5);
+}
+
+.token.punctuation {
+	opacity: .7;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol {
+	color: hsl(350, 40%, 70%);
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.builtin {
+	color: #FE9A34;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: hsl(40, 90%, 60%);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #748BAF;
+}
+
+
+.token.regex,
+.token.important {
+	color: #e90;
+}
+
+.token.important {
+	font-weight: bold;
+}
+
+.token.entity {
+	cursor: help;
+}
+
+
+
+body {
+	background: #000;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	color: #fff;
+	font-family: "helvetica neue", helvetica, arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+p,
+code {
+	font-weight: normal;
+	margin: 10px;
+}
+
+code {
+	background: #000;
+	display: block;
+	margin: 20px 10px 0;
+	overflow: scroll;
+}
+
+#info,
+#sidebar {
+	background: rgba(0,0,0,0.5);
+	box-sizing: border-box;
+	height: 100%;
+	position: absolute;
+}
+
+#info {
+	padding: 40px;
+	width: 60%;
+}
+
+#sidebar {
+	left: 60%;
+	padding-top: 80px;
+	width: 40%;
+}
+
+#logo {
+	background: url(../_imgs/bluur.png) no-repeat left top;
+	display: block;
+	height: 90px;
+	margin-top: 60px;
+	overflow: hidden;
+	text-indent: 100%;
+	white-space: nowrap;
+	width: 400px;
+}
+
+.space {
+	margin: 40px auto;
+	width: 60%;
+}
+
+img {
+	max-width: 90%;
+}
